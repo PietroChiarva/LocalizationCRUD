@@ -29,8 +29,29 @@ namespace LocalizationCRUD.Controllers
         {
             using (MobileWarehouseEntities db = new MobileWarehouseEntities())
             {
-                var x = db.RisorseLocalizzazioneLabel.Where(l => l.idModulo == data.idModulo).ToList();
-                data.ResultList = x;
+                IQueryable<RisorseLocalizzazioneLabel> x = null;
+                if (data.idModulo != 0)
+                {
+                    x = db.RisorseLocalizzazioneLabel.Where(l => l.idModulo == data.idModulo);
+                }
+                else
+                {
+                    x = db.RisorseLocalizzazioneLabel;
+                }
+                if (data.labelFor != null)
+                {
+                    x = x.Where(l => l.labelFor == data.labelFor);
+                }
+                if(data.lingua != null)
+                {
+                    x = x.Where(l => l.lingua == data.lingua);
+                }
+                if(data.label != null)
+                {
+                    x = x.Where(l => l.label == data.label);
+                }
+
+                data.ResultList = x.ToList();
             }
                 return View(data);
         }
