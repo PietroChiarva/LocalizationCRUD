@@ -25,11 +25,14 @@ namespace LocalizationCRUD.Controllers
         {
             return View();
         }
-        public ActionResult SearchCriteria()
+        public ActionResult SearchCriteria(SearchClassLabel data)
         {
-            SearchClassLabel search = new SearchClassLabel();
-
-            return View(search);
+            using (MobileWarehouseEntities db = new MobileWarehouseEntities())
+            {
+                var x = db.RisorseLocalizzazioneLabel.Where(l => l.idModulo == data.idModulo).ToList();
+                data.ResultList = x;
+            }
+                return View(data);
         }
         public ActionResult Search()
         {
