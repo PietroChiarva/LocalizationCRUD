@@ -71,16 +71,28 @@ namespace LocalizationCRUD.Controllers
             using (MobileWarehouseEntities db = new MobileWarehouseEntities())
             {
                 
-
                  d = db.RisorseLocalizzazioneLabel.Where(l => l.idModulo == idmodulo && l.labelFor == labelfor && l.lingua == lingua).FirstOrDefault();
-
-                //if (d != null)
-                //{
-                //    db.RisorseLocalizzazioneLabel.Remove(d);
-                //    db.SaveChanges();
-                //}
             }
                 return View(d);
+        }
+
+        public ActionResult DoDelete(int idmodulo, string labelfor, string lingua)
+        {
+
+            RisorseLocalizzazioneLabel d = null;
+            using (MobileWarehouseEntities db = new MobileWarehouseEntities())
+            {
+
+
+                d = db.RisorseLocalizzazioneLabel.Where(l => l.idModulo == idmodulo && l.labelFor == labelfor && l.lingua == lingua).FirstOrDefault();
+
+                if (d != null)
+                {
+                    db.RisorseLocalizzazioneLabel.Remove(d);
+                    db.SaveChanges();
+                }
+            }
+            return View("Index");
         }
     }
 

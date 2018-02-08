@@ -45,9 +45,12 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm("DoDelete", "Label", null, FormMethod.Post))
+    {
         @Html.AntiForgeryToken()
-
+        @Html.HiddenFor(model => model.idModulo)
+        @Html.HiddenFor(model => model.labelFor)
+        @Html.HiddenFor(model => model.lingua)
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
             @Html.ActionLink("Back to List", "Index")
