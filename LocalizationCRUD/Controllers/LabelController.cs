@@ -54,6 +54,7 @@ namespace LocalizationCRUD.Controllers
 
                 data.ResultList = x.ToList();
 
+
             }
             return View(data);
         }
@@ -64,9 +65,22 @@ namespace LocalizationCRUD.Controllers
             return View(pippo);
         }
 
-        public ActionResult Delete()
+        public ActionResult Delete(int idmodulo, string labelfor, string lingua)
         {
-            return View();
+            RisorseLocalizzazioneLabel d = null;
+            using (MobileWarehouseEntities db = new MobileWarehouseEntities())
+            {
+                
+
+                 d = db.RisorseLocalizzazioneLabel.Where(l => l.idModulo == idmodulo && l.labelFor == labelfor && l.lingua == lingua).FirstOrDefault();
+
+                //if (d != null)
+                //{
+                //    db.RisorseLocalizzazioneLabel.Remove(d);
+                //    db.SaveChanges();
+                //}
+            }
+                return View(d);
         }
     }
 

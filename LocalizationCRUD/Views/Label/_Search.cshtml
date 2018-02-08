@@ -42,7 +42,8 @@
         </td>
         <td>
             @Html.ActionLink("Update", "Update", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Delete", "Delete", new { idModulo = item.idModulo, labelFor = item.labelFor,
+                                                        lingua = item.lingua})
         </td>
     </tr>
 }
