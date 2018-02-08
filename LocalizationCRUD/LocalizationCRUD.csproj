@@ -154,6 +154,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\SearchClassLabel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -196,11 +197,11 @@
     <Content Include="Views\Label\InsertLabel.cshtml" />
     <Content Include="Views\Label\Insert.cshtml" />
     <Content Include="Views\Label\Update.cshtml" />
-    <Content Include="Views\Label\Search.cshtml" />
+    <Content Include="Views\Label\_Search.cshtml" />
+    <Content Include="Views\Label\SearchCriteria.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\InserisciLabel\" />
   </ItemGroup>
   <ItemGroup>

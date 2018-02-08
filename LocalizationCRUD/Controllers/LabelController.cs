@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using LocalizationCRUD.Models;
 
 namespace LocalizationCRUD.Controllers
 {
@@ -26,8 +27,9 @@ namespace LocalizationCRUD.Controllers
         }
         public ActionResult SearchCriteria()
         {
+            SearchClassLabel search = new SearchClassLabel();
 
-            return View();
+            return View(search);
         }
         public ActionResult Search()
         {
