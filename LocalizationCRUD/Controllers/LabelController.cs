@@ -30,7 +30,7 @@ namespace LocalizationCRUD.Controllers
             using (MobileWarehouseEntities db = new MobileWarehouseEntities())
             {
                 IQueryable<RisorseLocalizzazioneLabel> x = null;
-                if (data.idModulo != 0)
+                if (data.idModulo.HasValue)
                 {
                     x = db.RisorseLocalizzazioneLabel.Where(l => l.idModulo == data.idModulo);
                 }
@@ -62,6 +62,11 @@ namespace LocalizationCRUD.Controllers
             List<RisorseLocalizzazioneLabel> pippo = new List<RisorseLocalizzazioneLabel>();
 
             return View(pippo);
+        }
+
+        public ActionResult Delete()
+        {
+            return View();
         }
     }
 

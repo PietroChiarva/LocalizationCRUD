@@ -199,6 +199,7 @@
     <Content Include="Views\Label\Update.cshtml" />
     <Content Include="Views\Label\_Search.cshtml" />
     <Content Include="Views\Label\SearchCriteria.cshtml" />
+    <Content Include="Views\Label\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

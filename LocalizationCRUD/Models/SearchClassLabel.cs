@@ -14,8 +14,9 @@ namespace LocalizationCRUD.Models
         }
 
         public List<RisorseLocalizzazioneLabel> ResultList { get; set; }
+        public new int? idModulo { get; set; }
 
-        
+
 
     }
 }
