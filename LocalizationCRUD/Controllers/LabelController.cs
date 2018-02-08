@@ -16,15 +16,27 @@ namespace LocalizationCRUD.Controllers
             return View();
         }
 
-        public ActionResult Insert()
+        public ActionResult Insert(RisorseLocalizzazioneLabel data)
         {
-            return View();
+            
+                if (data.idModulo != null && data.idModulo != 0 && !string.IsNullOrEmpty( data.labelFor) && !string.IsNullOrEmpty(data.lingua) && !string.IsNullOrEmpty(data.label))
+                {
+                using (MobileWarehouseEntities db = new MobileWarehouseEntities())
+                {
+                    db.RisorseLocalizzazioneLabel.Add(data);
+                    db.SaveChanges();
+                }
+                
+
+            }
+                return View("Index");
         }
 
         public ActionResult Update()
         {
             return View();
         }
+
         public ActionResult SearchCriteria(SearchClassLabel data)
         {
             using (MobileWarehouseEntities db = new MobileWarehouseEntities())
