@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LocalizationCRUD.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -23,10 +24,16 @@ namespace LocalizationCRUD.Controllers
         {
             return View();
         }
+        public ActionResult SearchCriteria()
+        {
 
+            return View();
+        }
         public ActionResult Search()
         {
-            return View();
+            List<RisorseLocalizzazioneLabel> pippo = new List<RisorseLocalizzazioneLabel>();
+
+            return View(pippo);
         }
     }
 

@@ -196,6 +196,7 @@
     <Content Include="Views\Label\InsertLabel.cshtml" />
     <Content Include="Views\Label\Insert.cshtml" />
     <Content Include="Views\Label\Update.cshtml" />
+    <Content Include="Views\Label\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
