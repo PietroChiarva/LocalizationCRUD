@@ -6,7 +6,7 @@
 
 <h2>Update</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("DoUpdate", "Label", null, FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     

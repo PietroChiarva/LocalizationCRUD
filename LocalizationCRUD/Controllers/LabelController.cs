@@ -32,10 +32,31 @@ namespace LocalizationCRUD.Controllers
                 return View("Index");
         }
 
-        public ActionResult Update()
+        public ActionResult Update(int idmodulo, string labelfor, string lingua, string label)
         {
             return View();
         }
+
+        public ActionResult DoUpdate(SearchClassLabel data)
+        {
+            RisorseLocalizzazioneLabel d = null;
+            using (MobileWarehouseEntities db = new MobileWarehouseEntities())
+            {
+                d = db.RisorseLocalizzazioneLabel.Where(l => l.idModulo == data.idModulo && l.labelFor == data.labelFor && l.lingua == data.lingua).FirstOrDefault();
+                if(d != null)
+                {
+                    d.label = data.label;
+                }
+                else
+                {
+                    db.RisorseLocalizzazioneLabel.Add(data);
+                }
+                db.SaveChanges();
+            }
+                return View("Index");
+        }
+
+
 
         public ActionResult SearchCriteria(SearchClassLabel data)
         {
@@ -69,12 +90,6 @@ namespace LocalizationCRUD.Controllers
 
             }
             return View(data);
-        }
-        public ActionResult Search()
-        {
-            List<RisorseLocalizzazioneLabel> pippo = new List<RisorseLocalizzazioneLabel>();
-
-            return View(pippo);
         }
 
         public ActionResult Delete(int idmodulo, string labelfor, string lingua)
