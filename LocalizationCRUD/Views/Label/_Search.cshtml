@@ -38,12 +38,21 @@
             @Html.DisplayFor(modelItem => item.label)
         </td>
         <td>
-            @Html.ActionLink("Update", "Update", new {
-           idModulo = item.idModulo,labelFor = item.labelFor,lingua = item.lingua, label = item.label }) |
+            @Html.ActionLink("Update", "Update", new { idModulo = item.idModulo,labelFor = item.labelFor,lingua = item.lingua, label = item.label }) |
             @Html.ActionLink("Delete", "Delete", new { idModulo = item.idModulo, labelFor = item.labelFor,
                                                         lingua = item.lingua})
+
+             <a onclick="ShowEditModal( '@item.idModulo', '@item.labelFor', '@item.lingua', '@item.label')" 
+                class="btn btn-primary">Edit</a>
         </td>
     </tr>
+
 }
 
 </table>
+
+<script type="text/javascript">
+    function ShowEditModal(idModulo, labelFor, lingua, label) {
+        $('#showModal').show();
+    }
+</script>

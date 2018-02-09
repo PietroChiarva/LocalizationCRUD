@@ -35,6 +35,20 @@
             <p>&copy; @DateTime.Now.Year - Applicazione ASP.NET</p>
         </footer>
     </div>
+    <div class="modal fade double-modal" id="showModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-hidden="true">
+        <div class="modal-dialog modal-xxl">
+            <div class="modal-content">
+                <div class="modal-header">
+                </div>
+                <div class="modal-body elenco-modal">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="buttonClose">Chiudi</button>
+                    <button type="button" class="btn btn-default HideDiv" id="buttonSaveOutward">Okay</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
