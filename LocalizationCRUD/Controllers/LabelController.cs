@@ -63,7 +63,7 @@ namespace LocalizationCRUD.Controllers
                 }
                 db.SaveChanges();
             }
-                return View("Index");
+                return SearchCriteria(new SearchClassLabel());
         }
 
 
@@ -99,7 +99,7 @@ namespace LocalizationCRUD.Controllers
 
 
             }
-            return View(data);
+            return View("SearchCriteria",data);
         }
 
         public ActionResult Delete(int idmodulo, string labelfor, string lingua)
@@ -130,6 +130,12 @@ namespace LocalizationCRUD.Controllers
                 }
             }
             return View("Index");
+        }
+
+        public ActionResult _PartialUpdate(int idModulo, string labelFor, string lingua, string label)
+        {
+            return PartialView();
+
         }
     }
 
