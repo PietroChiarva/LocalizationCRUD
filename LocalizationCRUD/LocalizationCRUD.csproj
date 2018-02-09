@@ -155,6 +155,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\SearchClassLabel.cs" />
+    <Compile Include="Models\SearchClassMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -200,6 +201,11 @@
     <Content Include="Views\Label\_Search.cshtml" />
     <Content Include="Views\Label\SearchCriteria.cshtml" />
     <Content Include="Views\Label\Delete.cshtml" />
+    <Content Include="Views\Message\_Search.cshtml" />
+    <Content Include="Views\Message\Delete.cshtml" />
+    <Content Include="Views\Message\Insert.cshtml" />
+    <Content Include="Views\Message\SearchCriteria.cshtml" />
+    <Content Include="Views\Message\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

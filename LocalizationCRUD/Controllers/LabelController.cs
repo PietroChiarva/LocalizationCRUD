@@ -18,18 +18,23 @@ namespace LocalizationCRUD.Controllers
 
         public ActionResult Insert(RisorseLocalizzazioneLabel data)
         {
-            
-                if (data.idModulo != null && data.idModulo != 0 && !string.IsNullOrEmpty( data.labelFor) && !string.IsNullOrEmpty(data.lingua) && !string.IsNullOrEmpty(data.label))
-                {
+
+            return View();
+        }
+
+        public ActionResult DoInsert(RisorseLocalizzazioneLabel data)
+        {
+            if (data.idModulo != null && data.idModulo != 0 && !string.IsNullOrEmpty(data.labelFor) && !string.IsNullOrEmpty(data.lingua) && !string.IsNullOrEmpty(data.label))
+            {
                 using (MobileWarehouseEntities db = new MobileWarehouseEntities())
                 {
                     db.RisorseLocalizzazioneLabel.Add(data);
                     db.SaveChanges();
                 }
-                
+
 
             }
-                return View("Index");
+            return View("Index");
         }
 
         public ActionResult Update(int idmodulo, string labelfor, string lingua, string label)
@@ -49,7 +54,12 @@ namespace LocalizationCRUD.Controllers
                 }
                 else
                 {
-                    db.RisorseLocalizzazioneLabel.Add(data);
+                    d = new RisorseLocalizzazioneLabel();
+                    d.idModulo = data.idModulo.Value;
+                    d.labelFor = data.labelFor;
+                    d.lingua = data.lingua;
+                    d.label = data.label;
+                    db.RisorseLocalizzazioneLabel.Add(d);
                 }
                 db.SaveChanges();
             }

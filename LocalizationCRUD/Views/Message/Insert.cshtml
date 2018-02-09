@@ -1,4 +1,4 @@
-﻿@model LocalizationCRUD.DAL.RisorseLocalizzazioneLabel
+﻿@model LocalizationCRUD.DAL.RisorseLocalizzazioneMessage
 
 @{
     ViewBag.Title = "Insert";
@@ -6,12 +6,12 @@
 
 <h2>Insert</h2>
 
-@using (Html.BeginForm("DoInsert", "Label", null, FormMethod.Post)) 
+@using (Html.BeginForm("DoInsert", "Message", null, FormMethod.Post)) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>RisorseLocalizzazioneLabel</h4>
+        <h4>RisorseLocalizzazioneMessage</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
