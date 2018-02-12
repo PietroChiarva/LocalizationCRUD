@@ -53,10 +53,10 @@
     })
 
 
-            <a onclick="ShowEditModal( '@item.idModulo', '@item.labelFor', '@item.lingua', '@item.label')"
+            <a onclick="ShowEditModalMessage( '@item.idModulo', '@item.labelFor', '@item.lingua', '@item.label')"
                class="btn btn-primary">Edit</a>
 
-            <a onclick="ShowDeleteModal( '@item.idModulo', '@item.labelFor', '@item.lingua', '@item.label')"
+            <a onclick="ShowDeleteModalMessage( '@item.idModulo', '@item.labelFor', '@item.lingua', '@item.label')"
                class="btn btn-primary">Delete</a>
         </td>
     </tr>
@@ -65,11 +65,11 @@
 </table>
 
 <script type="text/javascript">
-    function ShowEditModal(idModulo, labelFor, lingua, label) {
+    function ShowEditModalMessage(idModulo, labelFor, lingua, label) {
         $('#showModal .modal-body').load(Router.action('Label', '_PartialUpdate', { idModulo: idModulo, labelFor: labelFor, lingua: lingua, label: label }));
         $('#showModal').modal("show");
     }
-    function ShowDeleteModal(idModulo, labelFor, lingua, label) {
+    function ShowDeleteModalMessage(idModulo, labelFor, lingua, label) {
         $('#showModal .modal-body').load(Router.action('Label', '_PartialDelete', { idModulo: idModulo, labelFor: labelFor, lingua: lingua, label: label }));
         $('#showModal').modal("show");
     }

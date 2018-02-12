@@ -138,9 +138,15 @@ namespace LocalizationCRUD.Controllers
 
         }
 
-        public ActionResult _PartialDelete(int idModulo, string labelFor, string lingua)
+        public ActionResult _PartialDelete(int idModulo, string labelFor, string lingua, string label)
         {
-            return PartialView();
+            RisorseLocalizzazioneLabel d = null;
+            using (MobileWarehouseEntities db = new MobileWarehouseEntities())
+            {
+
+                d = db.RisorseLocalizzazioneLabel.Where(l => l.idModulo == idModulo && l.labelFor == labelFor && l.lingua == lingua).FirstOrDefault();
+            }
+            return PartialView(d);
         }
     }
 
