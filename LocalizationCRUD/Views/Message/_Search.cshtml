@@ -66,11 +66,11 @@
 
 <script type="text/javascript">
     function ShowEditModalMessage(idModulo, labelFor, lingua, label) {
-        $('#showModal .modal-body').load(Router.action('Label', '_PartialUpdate', { idModulo: idModulo, labelFor: labelFor, lingua: lingua, label: label }));
+        $('#showModal .modal-body').load(Router.action('Message', '_PartialUpdate', { idModulo: idModulo, labelFor: labelFor, lingua: lingua, label: label }));
         $('#showModal').modal("show");
     }
     function ShowDeleteModalMessage(idModulo, labelFor, lingua, label) {
-        $('#showModal .modal-body').load(Router.action('Label', '_PartialDelete', { idModulo: idModulo, labelFor: labelFor, lingua: lingua, label: label }));
+        $('#showModal .modal-body').load(Router.action('Message', '_PartialDelete', { idModulo: idModulo, labelFor: labelFor, lingua: lingua, label: label }));
         $('#showModal').modal("show");
     }
 </script>
