@@ -220,6 +220,9 @@
     <Content Include="Views\Message\SearchCriteria.cshtml" />
     <Content Include="Views\Message\Update.cshtml" />
     <Content Include="Views\Label\_PartialUpdate.cshtml" />
+    <Content Include="Views\Label\_PartialDelete.cshtml" />
+    <Content Include="Views\Message\_PartialUpdate.cshtml" />
+    <Content Include="Views\Message\_PartialDelete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
