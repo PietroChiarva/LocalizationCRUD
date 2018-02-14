@@ -6,10 +6,10 @@
 
 <h2>Insert</h2>
 
-@using (Html.BeginForm("DoInsert", "Label", null, FormMethod.Post)) 
+@using (Html.BeginForm("DoInsert", "Label", null, FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>RisorseLocalizzazioneLabel</h4>
         <hr />
@@ -54,6 +54,41 @@
     </div>
 }
 
+
+<a class="btn btn-primary" id="btnSubmit" onclick="AjaxInsert()">AJAX Insert</a>
+
+
+
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+
+<script type="text/javascript">
+   
+    function AjaxInsert(){
+            var Data = {
+                idModulo : $('#idModulo').val(),
+                labelFor : $('#labelFor').val(),
+                lingua : $('#lingua').val(),
+                label : $('#label').val()
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("AJAXInsert", "Label")",
+                data: JSON.stringify(Data),
+                contentType: "application/json; charset=utf-8",
+                datatype: "html",
+                success: function (data) {
+                    alert(data.messaggio);
+                },
+                error: function () {
+                    alert("Error!");
+                }
+
+            });
+    };
+</script>
+
+

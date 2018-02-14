@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using LocalizationCRUD.Models;
+using System.Web.Helpers;
+using System.Web.Script.Serialization;
 
 namespace LocalizationCRUD.Controllers
 {
@@ -35,6 +37,20 @@ namespace LocalizationCRUD.Controllers
 
             }
             return View("Index");
+        }
+        public JsonResult AJAXInsert(RisorseLocalizzazioneLabel data)
+        {
+            
+            if (data.idModulo != null && data.idModulo != 0 && !string.IsNullOrEmpty(data.labelFor) && !string.IsNullOrEmpty(data.lingua) && !string.IsNullOrEmpty(data.label))
+            {
+                using (MobileWarehouseEntities db = new MobileWarehouseEntities())
+                {
+                    db.RisorseLocalizzazioneLabel.Add(data);
+                    db.SaveChanges();
+                }
+
+             }
+            return Json(new { messaggio = $"Label {data.idModulo} aggiunta con successo" });
         }
 
         public ActionResult Update(int idmodulo, string labelfor, string lingua, string label)
