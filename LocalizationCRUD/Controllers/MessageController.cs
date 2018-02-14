@@ -37,6 +37,21 @@ namespace LocalizationCRUD.Controllers
             return View("Index");
         }
 
+        public JsonResult AJAXInsert(RisorseLocalizzazioneMessage data)
+        {
+
+            if (data.idModulo != null && data.idModulo != 0 && !string.IsNullOrEmpty(data.labelFor) && !string.IsNullOrEmpty(data.lingua) && !string.IsNullOrEmpty(data.label))
+            {
+                using (MobileWarehouseEntities db = new MobileWarehouseEntities())
+                {
+                    db.RisorseLocalizzazioneMessage.Add(data);
+                    db.SaveChanges();
+                }
+
+            }
+            return Json(new { messaggio = $"Messaggio {data.idModulo} aggiunto con successo" });
+        }
+
         public ActionResult Update(int idmodulo, string labelfor, string lingua, string label)
         {
             return View();
